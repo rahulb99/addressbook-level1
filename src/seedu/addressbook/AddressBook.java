@@ -1048,8 +1048,24 @@ public class AddressBook {
      * @param name to be validated
      */
     private static boolean isPersonNameValid(String name) {
-         return name.matches("(\\w|\\s)+");  // name is nonempty mixture of alphabets and whitespace
+       // return name.matches("(\\w|\\s)+");  // name is nonempty mixture of alphabets and whitespace
         //TODO: implement a more permissive validation
+
+        name = name.trim();
+        //minimum length of name should be 2
+        if (name.length() <= 1) {
+            return false;
+        }
+
+        //only upper or lower case letters or spaces are allowed
+        for (int i = 0; i < name.length(); i++) {
+            char ch = name.charAt(i);
+            if (ch == 32)
+                continue;
+            if (!((ch >= 65 && ch <= 90) ||  (ch >= 97 && ch <=122)))
+                return false;
+        }
+        return true;
     }
 
     /**
