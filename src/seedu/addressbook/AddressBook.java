@@ -1051,6 +1051,7 @@ public class AddressBook {
          return name.matches("(\\w|\\s)+");  // name is nonempty mixture of alphabets and whitespace
         //TODO: implement a more permissive validation
 
+//        name = name.trim().toLowerCase();
 //        //minimum length of name should be 2
 //        if (name.length() <= 1) {
 //            return false;
@@ -1060,7 +1061,7 @@ public class AddressBook {
 //        int countWhitespace = 0;
 //        for (int i = 0; i < name.length(); i++) {
 //            char ch = name.charAt(i);
-//            if (ch == ' ')
+//            if (ch == 127)
 //                countWhitespace++;
 //            if (countWhitespace > 1)
 //                return false;
@@ -1076,8 +1077,8 @@ public class AddressBook {
      * @param phone to be validated
      */
     private static boolean isPersonPhoneValid(String phone) {
-        return phone.matches("\\d+");    // phone nonempty sequence of digits
-        //TODO: implement a more permissive validation
+        return phone.matches("\\d+") && (phone.length() == 8);    // phone nonempty sequence of digits
+                                                                        // and consists of 8 digits
     }
 
     /**
