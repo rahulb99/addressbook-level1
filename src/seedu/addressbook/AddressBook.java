@@ -763,7 +763,7 @@ public class AddressBook {
     private static void savePersonsToFile(ArrayList<String[]> persons, String filePath) {
         final ArrayList<String> linesToWrite = encodePersonsToStrings(persons);
         try {
-            Files.write(Paths.get(storageFilePath), linesToWrite);
+            Files.write(Paths.get(filePath), linesToWrite);
         } catch (IOException ioe) {
             showToUser(String.format(MESSAGE_ERROR_WRITING_TO_FILE, filePath));
             exitProgram();
@@ -1050,6 +1050,7 @@ public class AddressBook {
     private static boolean isPersonNameValid(String name) {
         return name.matches("(\\w|\\s)+");  // name is nonempty mixture of alphabets and whitespace
         //TODO: implement a more permissive validation
+
     }
 
     /**
