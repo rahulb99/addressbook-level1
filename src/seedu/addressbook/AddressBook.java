@@ -1050,25 +1050,6 @@ public class AddressBook {
     private static boolean isPersonNameValid(String name) {
          return name.matches("(\\w|\\s)+");  // name is nonempty mixture of alphabets and whitespace
         //TODO: implement a more permissive validation
-
-//        name = name.trim().toLowerCase();
-//        //minimum length of name should be 2
-//        if (name.length() <= 1) {
-//            return false;
-//        }
-//
-//        //only upper or lower case letters and max one whitespace are allowed
-//        int countWhitespace = 0;
-//        for (int i = 0; i < name.length(); i++) {
-//            char ch = name.charAt(i);
-//            if (ch == 127)
-//                countWhitespace++;
-//            if (countWhitespace > 1)
-//                return false;
-//            if ((ch >= 65 && ch <= 90) ||  (ch >= 97 && ch <=122))
-//                return false;
-//        }
-//        return true;
     }
 
     /**
